@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Invitación Privada</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+        <p class="badge">INVITACIÓN PRIVADA</p>
+        <h1>HIDEEN</h1>
+        <p class="subtitle">Evento competitivo clasificado</p>
+    </div>
+
+    <!-- INFO EVENTO -->
+    <div class="event-info">
+        <div class="info-box">
+            <span>📅 FECHA</span>
+            <strong>28 ENE 2026</strong>
+        </div>
+        <div class="info-box">
+            <span>⏰ HORA</span>
+            <strong>17:00 ARG</strong>
+        </div>
+        <div class="info-box">
+            <span>🎮 MODO</span>
+            <strong>5v5</strong>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feature">
+            <span class="icon">🎯</span>
+            <span class="text">Prepará tu <strong class="aim">AIM</strong></span>
+        </div>
+
+        <div class="feature">
+            <span class="icon">🧠</span>
+            <span class="text">Ajustá la <strong class="strategy">ESTRATEGIA</strong></span>
+        </div>
+
+        <div class="feature">
+            <span class="icon fire">🔥</span>
+            <span class="text">Demostrá quién <strong class="manda">MANDA</strong></span>
+        </div>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown">
+        <p>COMIENZA EN</p>
+        <h2 id="timer">00:00:00</h2>
+    </div>
+
+    <!-- ACCESO -->
+    <div class="access">
+        <p>ACCESO RESTRINGIDO</p>
+        <input type="text" id="code" placeholder="Código de invitación">
+        <button onclick="checkCode()">VERIFICAR</button>
+    </div>
+
+    <!-- BOTÓN DISCORD -->
+    <button class="discord" onclick="openDiscord()" id="discordBtn" disabled>
+        DISCORD – ACCESO BLOQUEADO
+    </button>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Esta invitación es confidencial.</p>
+        <p>No compartas el acceso.</p>
+    </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
