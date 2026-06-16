@@ -30,7 +30,7 @@ const defaults = {
     eventDateLabel: "4 JUL 2026",
     eventTimeLabel: "17:00 ARG",
     eventModeLabel: "5v5",
-    countdownNote: "Prepará el server y revisá tu loadout."
+    countdownNote: "Preparate para el torneo. ¡Va a ser épico!"
 };
 
 const params = new URLSearchParams(window.location.search);
