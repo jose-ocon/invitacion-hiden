@@ -26,8 +26,8 @@ const defaults = {
     code: "CS-00",
     message: "El acceso de tu escuadra es único y privado.",
     discordUrl: "https://discord.gg/jN5rCJRE",
-    eventDate: "2026-04-28T17:00:00-03:00",
-    eventDateLabel: "28 ABR 2026",
+    eventDate: "2026-07-04T17:00:00-03:00",
+    eventDateLabel: "4 JUL 2026",
     eventTimeLabel: "17:00 ARG",
     eventModeLabel: "5v5",
     countdownNote: "Prepará el server y revisá tu loadout."
