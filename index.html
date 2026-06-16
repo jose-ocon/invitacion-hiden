@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invitación privada para torneo de Counter-Strike.">
+    <title>Invitación Privada | Torneo Counter-Strike</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="page-shell">
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <section class="container">
+        <header class="hero">
+            <p class="badge">INVITACIÓN PRIVADA</p>
+            <p class="eyebrow" id="tournamentLabel">TORNEO DE COUNTER-STRIKE</p>
+            <h1 id="playerName">CARGANDO...</h1>
+            <!-- Reemplazado el texto fijo por puntos de carga para evitar el duplicado -->
+            <p class="subtitle" id="subtitle">...</p>
+
+            <div class="hero-meta">
+                <span id="teamLabel">Equipo: --</span>
+                <span id="seatLabel">Acceso: --</span>
+                <span id="codeLabel">Código: --</span>
+            </div>
+        </header>
+
+        <section class="stats-grid" aria-label="Detalles del evento">
+            <article class="stat-card">
+                <span> FECHA</span>
+                <strong id="eventDateLabel">--</strong>
+            </article>
+            <article class="stat-card">
+                <span> HORA</span>
+                <strong id="eventTimeLabel">--</strong>
+            </article>
+            <article class="stat-card">
+                <span> MODO</span>
+                <strong id="eventModeLabel">5v5</strong>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel panel-primary">
+                <div class="panel-heading">
+                    <p class="panel-kicker">Objetivo</p>
+                    <h2>Entrar, coordinar y dominar</h2>
+                </div>
+
+                <div class="features">
+                    <div class="feature reveal">
+                        <span class="text">Prepará tu <strong class="aim">AIM</strong></span>
+                    </div>
+
+                    <div class="feature reveal">
+                        <span class="text">Ajustá la <strong class="strategy">ESTRATEGIA</strong></span>
+                    </div>
+
+                    <div class="feature reveal">
+                        <span class="text">Demostrá quién <strong class="manda">MANDA</strong></span>
+                    </div>
+                </div>
+            </article>
+
+            <aside class="panel panel-side">
+                <div class="countdown-card">
+                    <p>4/5 DE JULIO</p>
+                    <h2 id="timer">00:00:00</h2>
+                    <span id="countdownNote">Prepará el server y revisá tu loadout.</span>
+                </div>
+
+                <div class="invite-card">
+                    <p class="panel-kicker">Link personalizado del Equipo</p>
+                    <strong id="personalLink">Generando enlace...</strong>
+                    <p id="inviteMessage">Tu acceso es único y privado.</p>
+                </div>
+
+                <div class="actions">
+                    <button class="discord enabled" type="button" id="discordButton">DISCORD - UNIRSE</button>
+                    <button class="secondary-button" type="button" id="copyLinkButton">COPIAR LINK</button>
+                </div>
+            </aside>
+        </section>
+
+        <footer>
+            <p>Esta invitación es confidencial.</p>
+            <p>No compartas el acceso público.</p>
+        </footer>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
