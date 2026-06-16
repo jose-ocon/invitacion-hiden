@@ -1,6 +1,6 @@
 const defaults = {
     name: "TEAM HIDEEN",
-    subtitle: "HIDEEN - ENZITOTAPS - CHOFI - RAMA - JOSE",
+    subtitle: "HIDEEN - ENZITOTAPS - CHOFI - RAMA - MANCHAS",
     team: "Por definir",
     seat: "Competidor",
     code: "CS-00",
