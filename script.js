@@ -1,25 +1,53 @@
+// 1. BASE DE DATOS DE LOS EQUIPOS (Agrega acá los nombres reales de los pibes)
+const ROSTERS = {
+    "EQ-01": "HIDEEN - ENZITOTAPS - CHOFI - RAMA - MANCHA",
+    "EQ-02": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-03": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-04": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-05": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-06": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-07": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-08": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-09": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-10": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-11": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-12": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-13": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-14": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-15": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
+    "EQ-16": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5"
+};
+
 const defaults = {
-    name: "TEAM HIDEEN",
-    subtitle: "HIDEEN - ENZITOTAPS - CHOFI - RAMA - MANCHAS",
+    name: "INVITACIÓN",
+    subtitle: "Evento competitivo clasificado",
     team: "Por definir",
     seat: "Competidor",
     code: "CS-00",
     message: "El acceso de tu escuadra es único y privado.",
     discordUrl: "https://discord.gg/jN5rCJRE",
-    eventDate: "2026-07-04T17:00:00-03:00",
-    eventDateLabel: "04 JUL 2026",
+    eventDate: "2026-04-28T17:00:00-03:00",
+    eventDateLabel: "28 ABR 2026",
     eventTimeLabel: "17:00 ARG",
     eventModeLabel: "5v5",
+    countdownNote: "Prepará el server y revisá tu loadout."
 };
 
 const params = new URLSearchParams(window.location.search);
 
+// Obtenemos el código primero para poder buscar el roster analizando la URL
+const currentCode = params.get("code") || defaults.code;
+
+// CONDICIONAL INTELIGENTE: Si el código existe en nuestra lista ROSTERS, usa esos nombres. 
+// Si meten un código que no existe o no ponen nada, usa el parámetro 'subtitle' de la URL o el por defecto.
+const determinedSubtitle = ROSTERS[currentCode] || params.get("subtitle") || defaults.subtitle;
+
 const state = {
     name: params.get("name") || defaults.name,
-    subtitle: params.get("subtitle") || defaults.subtitle,
+    subtitle: determinedSubtitle,
     team: params.get("team") || defaults.team,
     seat: params.get("seat") || defaults.seat,
-    code: params.get("code") || defaults.code,
+    code: currentCode,
     message: params.get("message") || defaults.message,
     discordUrl: params.get("discord") || defaults.discordUrl,
     eventDate: params.get("date") || defaults.eventDate,
@@ -58,7 +86,7 @@ function applyContent() {
     elements.countdownNote.textContent = state.countdownNote;
     elements.inviteMessage.textContent = state.message;
 
-    // Genera el link limpio basado en la URL actual de la web (funciona en local y en producción)
+    // Mantiene el enlace limpio para compartir centrado en los parámetros claves del equipo
     const shareUrl = new URL(window.location.origin + window.location.pathname);
     shareUrl.searchParams.set("team", state.team);
     shareUrl.searchParams.set("code", state.code);
