@@ -1,11 +1,11 @@
 // 1. BASE DE DATOS DE LOS 16 EQUIPOS (Cargala manualmente acá)
 const EQUIPOS = {
-    "EQ-01": { nombre: "TEAM HIDEEN", acceso: "VIP", codigoDisplay: "CS-01" },
+    "EQ-01": { nombre: "TEAM HIDEEN", acceso: "Competidor", codigoDisplay: "CS-01" },
     "EQ-02": { nombre: "TEAM ENZITOTAPS", acceso: "Competidor", codigoDisplay: "CS-02" },
-    "EQ-03": { nombre: "TEAM RUSH B", acceso: "Competidor", codigoDisplay: "CS-03" },
-    "EQ-04": { nombre: "ALFA STRIKE", acceso: "Competidor", codigoDisplay: "CS-04" },
-    "EQ-05": { nombre: "CLUTCH GODS", acceso: "Competidor", codigoDisplay: "CS-05" },
-    "EQ-06": { nombre: "EQUIPO 06", acceso: "Competidor", codigoDisplay: "CS-06" },
+    "EQ-03": { nombre: "TEAM 0800 MANCHAS", acceso: "Competidor", codigoDisplay: "CS-03" },
+    "EQ-04": { nombre: "TEAM LIAK23", acceso: "Competidor", codigoDisplay: "CS-04" },
+    "EQ-05": { nombre: "TEAM NIETPETE", acceso: "Competidor", codigoDisplay: "CS-05" },
+    "EQ-06": { nombre: "TEAM DILAN LA RIOJA", acceso: "Competidor", codigoDisplay: "CS-06" },
     "EQ-07": { nombre: "EQUIPO 07", acceso: "Competidor", codigoDisplay: "CS-07" },
     "EQ-08": { nombre: "EQUIPO 08", acceso: "Competidor", codigoDisplay: "CS-08" },
     "EQ-09": { nombre: "EQUIPO 09", acceso: "Competidor", codigoDisplay: "CS-09" },
