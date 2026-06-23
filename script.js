@@ -1,4 +1,3 @@
-// 1. BASE DE DATOS DE LOS 16 EQUIPOS (Cargala manualmente acá)
 const EQUIPOS = {
     "EQ-01": { nombre: "TEAM HIDEEN", acceso: "Competidor", codigoDisplay: "CS-01" },
     "EQ-02": { nombre: "TEAM ENZITOTAPS", acceso: "Competidor", codigoDisplay: "CS-02" },
@@ -6,16 +5,16 @@ const EQUIPOS = {
     "EQ-04": { nombre: "TEAM LIAK23", acceso: "Competidor", codigoDisplay: "CS-04" },
     "EQ-05": { nombre: "TEAM NIETPETE", acceso: "Competidor", codigoDisplay: "CS-05" },
     "EQ-06": { nombre: "TEAM DILAN LA RIOJA", acceso: "Competidor", codigoDisplay: "CS-06" },
-    "EQ-07": { nombre: "EQUIPO 07", acceso: "Competidor", codigoDisplay: "CS-07" },
-    "EQ-08": { nombre: "EQUIPO 08", acceso: "Competidor", codigoDisplay: "CS-08" },
-    "EQ-09": { nombre: "EQUIPO 09", acceso: "Competidor", codigoDisplay: "CS-09" },
-    "EQ-10": { nombre: "EQUIPO 10", acceso: "Competidor", codigoDisplay: "CS-10" },
-    "EQ-11": { nombre: "EQUIPO 11", acceso: "Competidor", codigoDisplay: "CS-11" },
-    "EQ-12": { nombre: "EQUIPO 12", acceso: "Competidor", codigoDisplay: "CS-12" },
-    "EQ-13": { nombre: "EQUIPO 13", acceso: "Competidor", codigoDisplay: "CS-13" },
-    "EQ-14": { nombre: "EQUIPO 14", acceso: "Competidor", codigoDisplay: "CS-14" },
-    "EQ-15": { nombre: "EQUIPO 15", acceso: "Competidor", codigoDisplay: "CS-15" },
-    "EQ-16": { nombre: "EQUIPO 16", acceso: "Competidor", codigoDisplay: "CS-16" }
+    "EQ-07": { nombre: "TEAM 07", acceso: "Competidor", codigoDisplay: "CS-07" },
+    "EQ-08": { nombre: "TEAM 08", acceso: "Competidor", codigoDisplay: "CS-08" },
+    "EQ-09": { nombre: "TEAM 09", acceso: "Competidor", codigoDisplay: "CS-09" },
+    "EQ-10": { nombre: "TEAM 10", acceso: "Competidor", codigoDisplay: "CS-10" },
+    "EQ-11": { nombre: "TEAM 11", acceso: "Competidor", codigoDisplay: "CS-11" },
+    "EQ-12": { nombre: "TEAM 12", acceso: "Competidor", codigoDisplay: "CS-12" },
+    "EQ-13": { nombre: "TEAM 13", acceso: "Competidor", codigoDisplay: "CS-13" },
+    "EQ-14": { nombre: "TEAM 14", acceso: "Competidor", codigoDisplay: "CS-14" },
+    "EQ-15": { nombre: "TEAM 15", acceso: "Competidor", codigoDisplay: "CS-15" },
+    "EQ-16": { nombre: "TEAM 16", acceso: "Competidor", codigoDisplay: "CS-16" }
 };
 
 const defaults = {
@@ -24,29 +23,34 @@ const defaults = {
     team: "Por definir",
     seat: "Competidor",
     code: "CS-00",
-    message: "El acceso de tu escuadra es único y privado.",
+    message: "Seguí las partidas en vivo por este canal.",
     discordUrl: "https://discord.gg/jN5rCJRE",
+    
+    // Canal general por defecto si entra alguien sin código válido
+    defaultStream: "twitch.tv/tu_canal_principal", 
+
     eventDate: "2026-07-04T17:00:00-03:00",
     eventDateLabel: "04 JUL 2026",
     eventTimeLabel: "17:00 ARG",
-    
     eventModeLabel: "5v5",
-    countdownNote: "Prepará el server y revisá tu loadout."
-};
+    countdownNote: "Preparado?"
+}
 
 const params = new URLSearchParams(window.location.search);
-const codeParam = params.get("code"); // Lee el ?code=EQ-XX de la URL
+const codeParam = params.get("code");
 
-// Buscamos si el código ingresado existe en nuestra base de datos interna
 const equipoEncontrado = EQUIPOS[codeParam];
 
 const state = {
-    // Si existe el código, precarga los datos correspondientes; si no, usa los defaults
     name: equipoEncontrado ? equipoEncontrado.nombre : defaults.name,
     subtitle: defaults.subtitle,
     team: equipoEncontrado ? equipoEncontrado.nombre : defaults.team,
     seat: equipoEncontrado ? equipoEncontrado.acceso : defaults.seat,
     code: equipoEncontrado ? equipoEncontrado.codigoDisplay : defaults.code,
+    
+    // Si el equipo tiene un canal manual asignado lo usa, si no, pone el default
+    streamUrl: equipoEncontrado && equipoEncontrado.stream ? equipoEncontrado.stream : defaults.defaultStream,
+
     message: defaults.message,
     discordUrl: defaults.discordUrl,
     eventDate: defaults.eventDate,
