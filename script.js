@@ -1,21 +1,21 @@
 // 1. BASE DE DATOS DE LOS 16 EQUIPOS
 const EQUIPOS = {
-    "EQ-01": { nombre: "TEAM HIDEEN", acceso: "VIP", codigoDisplay: "CS-01", plataforma: "twitch", canal: "gaules" },
-    "EQ-02": { nombre: "TEAM ENZITOTAPS", acceso: "Competidor", codigoDisplay: "CS-02", plataforma: "twitch", canal: "gaules" },
-    "EQ-03": { nombre: "TEAM RUSH B", acceso: "Competidor", codigoDisplay: "CS-03", plataforma: "kick", canal: "westcol" },
-    "EQ-04": { nombre: "ALFA STRIKE", acceso: "Competidor", codigoDisplay: "CS-04", plataforma: "twitch", canal: "gaules" },
-    "EQ-05": { nombre: "CLUTCH GODS", acceso: "Competidor", codigoDisplay: "CS-05", plataforma: "twitch", canal: "gaules" },
-    "EQ-06": { nombre: "EQUIPO 06", acceso: "Competidor", codigoDisplay: "CS-06", plataforma: "twitch", canal: "gaules" },
-    "EQ-07": { nombre: "EQUIPO 07", acceso: "Competidor", codigoDisplay: "CS-07", plataforma: "twitch", canal: "gaules" },
-    "EQ-08": { nombre: "EQUIPO 08", acceso: "Competidor", codigoDisplay: "CS-08", plataforma: "twitch", canal: "gaules" },
-    "EQ-09": { nombre: "EQUIPO 09", acceso: "Competidor", codigoDisplay: "CS-09", plataforma: "twitch", canal: "gaules" },
-    "EQ-10": { nombre: "EQUIPO 10", acceso: "Competidor", codigoDisplay: "CS-10", plataforma: "twitch", canal: "gaules" },
-    "EQ-11": { nombre: "EQUIPO 11", acceso: "Competidor", codigoDisplay: "CS-11", plataforma: "twitch", canal: "gaules" },
-    "EQ-12": { nombre: "EQUIPO 12", acceso: "Competidor", codigoDisplay: "CS-12", plataforma: "twitch", canal: "gaules" },
-    "EQ-13": { nombre: "EQUIPO 13", acceso: "Competidor", codigoDisplay: "CS-13", plataforma: "twitch", canal: "gaules" },
-    "EQ-14": { nombre: "EQUIPO 14", acceso: "Competidor", codigoDisplay: "CS-14", plataforma: "twitch", canal: "gaules" },
-    "EQ-15": { nombre: "EQUIPO 15", acceso: "Competidor", codigoDisplay: "CS-15", plataforma: "twitch", canal: "gaules" },
-    "EQ-16": { nombre: "EQUIPO 16", acceso: "Competidor", codigoDisplay: "CS-16", plataforma: "twitch", canal: "gaules" }
+    "EQ-01": { nombre: "TEAM ENZITOTAPS", acceso: "Competidor", codigoDisplay: "CS-01", plataforma: "twitch", canal: "ihideen" },
+    "EQ-02": { nombre: "TEAM 0800 MANCHAS", acceso: "Competidor", codigoDisplay: "CS-02", plataforma: "twitch", canal: "ihideen" },
+    "EQ-03": { nombre: "TEAM LIAK23", acceso: "Competidor", codigoDisplay: "CS-03", plataforma: "twitch", canal: "ihideen" },
+    "EQ-04": { nombre: "TEAM NIETPETE", acceso: "Competidor", codigoDisplay: "CS-04", plataforma: "twitch", canal: "ihideen" },
+    "EQ-05": { nombre: "TEAM DILAN LA RIOJA", acceso: "Competidor", codigoDisplay: "CS-05", plataforma: "twitch", canal: "ihideen" },
+    "EQ-06": { nombre: "EQUIPO 06", acceso: "Competidor", codigoDisplay: "CS-06", plataforma: "twitch", canal: "ihideen" },
+    "EQ-07": { nombre: "EQUIPO 07", acceso: "Competidor", codigoDisplay: "CS-07", plataforma: "twitch", canal: "ihideen" },
+    "EQ-08": { nombre: "EQUIPO 08", acceso: "Competidor", codigoDisplay: "CS-08", plataforma: "twitch", canal: "ihideen" },
+    "EQ-09": { nombre: "EQUIPO 09", acceso: "Competidor", codigoDisplay: "CS-09", plataforma: "twitch", canal: "ihideen" },
+    "EQ-10": { nombre: "EQUIPO 10", acceso: "Competidor", codigoDisplay: "CS-10", plataforma: "twitch", canal: "ihideen" },
+    "EQ-11": { nombre: "EQUIPO 11", acceso: "Competidor", codigoDisplay: "CS-11", plataforma: "twitch", canal: "ihideen" },
+    "EQ-12": { nombre: "EQUIPO 12", acceso: "Competidor", codigoDisplay: "CS-12", plataforma: "twitch", canal: "ihideen" },
+    "EQ-13": { nombre: "EQUIPO 13", acceso: "Competidor", codigoDisplay: "CS-13", plataforma: "twitch", canal: "ihideen" },
+    "EQ-14": { nombre: "EQUIPO 14", acceso: "Competidor", codigoDisplay: "CS-14", plataforma: "twitch", canal: "ihideen" },
+    "EQ-15": { nombre: "EQUIPO 15", acceso: "Competidor", codigoDisplay: "CS-15", plataforma: "twitch", canal: "ihideen" },
+    "EQ-16": { nombre: "EQUIPO 16", acceso: "Competidor", codigoDisplay: "CS-16", plataforma: "twitch", canal: "ihideen" }
 };
 
 // 2. SISTEMA DE LLAVES MANUAL (Cambiá los nombres acá a medida que avancen)
