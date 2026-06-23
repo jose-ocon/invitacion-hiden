@@ -1,20 +1,21 @@
+// 1. BASE DE DATOS DE LOS 16 EQUIPOS (Carga acá las plataformas y canales de transmisión)
 const EQUIPOS = {
-    "EQ-01": { nombre: "TEAM HIDEEN", acceso: "Competidor", codigoDisplay: "CS-01" },
-    "EQ-02": { nombre: "TEAM ENZITOTAPS", acceso: "Competidor", codigoDisplay: "CS-02" },
-    "EQ-03": { nombre: "TEAM 0800 MANCHAS", acceso: "Competidor", codigoDisplay: "CS-03" },
-    "EQ-04": { nombre: "TEAM LIAK23", acceso: "Competidor", codigoDisplay: "CS-04" },
-    "EQ-05": { nombre: "TEAM NIETPETE", acceso: "Competidor", codigoDisplay: "CS-05" },
-    "EQ-06": { nombre: "TEAM DILAN LA RIOJA", acceso: "Competidor", codigoDisplay: "CS-06" },
-    "EQ-07": { nombre: "TEAM 07", acceso: "Competidor", codigoDisplay: "CS-07" },
-    "EQ-08": { nombre: "TEAM 08", acceso: "Competidor", codigoDisplay: "CS-08" },
-    "EQ-09": { nombre: "TEAM 09", acceso: "Competidor", codigoDisplay: "CS-09" },
-    "EQ-10": { nombre: "TEAM 10", acceso: "Competidor", codigoDisplay: "CS-10" },
-    "EQ-11": { nombre: "TEAM 11", acceso: "Competidor", codigoDisplay: "CS-11" },
-    "EQ-12": { nombre: "TEAM 12", acceso: "Competidor", codigoDisplay: "CS-12" },
-    "EQ-13": { nombre: "TEAM 13", acceso: "Competidor", codigoDisplay: "CS-13" },
-    "EQ-14": { nombre: "TEAM 14", acceso: "Competidor", codigoDisplay: "CS-14" },
-    "EQ-15": { nombre: "TEAM 15", acceso: "Competidor", codigoDisplay: "CS-15" },
-    "EQ-16": { nombre: "TEAM 16", acceso: "Competidor", codigoDisplay: "CS-16" }
+    "EQ-01": { nombre: "TEAM HIDEEN", acceso: "VIP", codigoDisplay: "CS-01", plataforma: "twitch", canal: "gaules" },
+    "EQ-02": { nombre: "TEAM ENZITOTAPS", acceso: "Competidor", codigoDisplay: "CS-02", plataforma: "twitch", canal: "gaules" },
+    "EQ-03": { nombre: "TEAM RUSH B", acceso: "Competidor", codigoDisplay: "CS-03", plataforma: "kick", canal: "westcol" },
+    "EQ-04": { nombre: "TEAM 0800 MANCHAS", acceso: "Competidor", codigoDisplay: "CS-04", plataforma: "twitch", canal: "gaules" },
+    "EQ-05": { nombre: "CLUTCH GODS", acceso: "Competidor", codigoDisplay: "CS-05", plataforma: "twitch", canal: "gaules" },
+    "EQ-06": { nombre: "EQUIPO 06", acceso: "Competidor", codigoDisplay: "CS-06", plataforma: "twitch", canal: "gaules" },
+    "EQ-07": { nombre: "EQUIPO 07", acceso: "Competidor", codigoDisplay: "CS-07", plataforma: "twitch", canal: "gaules" },
+    "EQ-08": { nombre: "EQUIPO 08", acceso: "Competidor", codigoDisplay: "CS-08", plataforma: "twitch", canal: "gaules" },
+    "EQ-09": { nombre: "EQUIPO 09", acceso: "Competidor", codigoDisplay: "CS-09", plataforma: "twitch", canal: "gaules" },
+    "EQ-10": { nombre: "EQUIPO 10", acceso: "Competidor", codigoDisplay: "CS-10", plataforma: "twitch", canal: "gaules" },
+    "EQ-11": { nombre: "EQUIPO 11", acceso: "Competidor", codigoDisplay: "CS-11", plataforma: "twitch", canal: "gaules" },
+    "EQ-12": { nombre: "EQUIPO 12", acceso: "Competidor", codigoDisplay: "CS-12", plataforma: "twitch", canal: "gaules" },
+    "EQ-13": { nombre: "EQUIPO 13", acceso: "Competidor", codigoDisplay: "CS-13", plataforma: "twitch", canal: "gaules" },
+    "EQ-14": { nombre: "EQUIPO 14", acceso: "Competidor", codigoDisplay: "CS-14", plataforma: "twitch", canal: "gaules" },
+    "EQ-15": { nombre: "EQUIPO 15", acceso: "Competidor", codigoDisplay: "CS-15", plataforma: "twitch", canal: "gaules" },
+    "EQ-16": { nombre: "EQUIPO 16", acceso: "Competidor", codigoDisplay: "CS-16", plataforma: "twitch", canal: "gaules" }
 };
 
 const defaults = {
@@ -26,19 +27,18 @@ const defaults = {
     message: "Seguí las partidas en vivo por este canal.",
     discordUrl: "https://discord.gg/jN5rCJRE",
     
-    // Canal general por defecto si entra alguien sin código válido
-    defaultStream: "twitch.tv/tu_canal_principal", 
+    defaultPlataforma: "twitch",
+    defaultCanal: "gaules", 
 
     eventDate: "2026-07-04T17:00:00-03:00",
     eventDateLabel: "04 JUL 2026",
     eventTimeLabel: "17:00 ARG",
     eventModeLabel: "5v5",
-    countdownNote: "Preparado?"
-}
+    countdownNote: "Prepará el server y revisá tu loadout."
+};
 
 const params = new URLSearchParams(window.location.search);
 const codeParam = params.get("code");
-
 const equipoEncontrado = EQUIPOS[codeParam];
 
 const state = {
@@ -47,10 +47,8 @@ const state = {
     team: equipoEncontrado ? equipoEncontrado.nombre : defaults.team,
     seat: equipoEncontrado ? equipoEncontrado.acceso : defaults.seat,
     code: equipoEncontrado ? equipoEncontrado.codigoDisplay : defaults.code,
-    
-    // Si el equipo tiene un canal manual asignado lo usa, si no, pone el default
-    streamUrl: equipoEncontrado && equipoEncontrado.stream ? equipoEncontrado.stream : defaults.defaultStream,
-
+    plataforma: equipoEncontrado ? equipoEncontrado.plataforma : defaults.defaultPlataforma,
+    canal: equipoEncontrado ? equipoEncontrado.canal : defaults.defaultCanal,
     message: defaults.message,
     discordUrl: defaults.discordUrl,
     eventDate: defaults.eventDate,
@@ -71,10 +69,9 @@ const elements = {
     eventModeLabel: document.getElementById("eventModeLabel"),
     timer: document.getElementById("timer"),
     countdownNote: document.getElementById("countdownNote"),
-    personalLink: document.getElementById("personalLink"),
+    videoContainer: document.getElementById("videoContainer"),
     inviteMessage: document.getElementById("inviteMessage"),
-    discordButton: document.getElementById("discordButton"),
-    copyLinkButton: document.getElementById("copyLinkButton")
+    discordButton: document.getElementById("discordButton")
 };
 
 function applyContent() {
@@ -89,12 +86,16 @@ function applyContent() {
     elements.countdownNote.textContent = state.countdownNote;
     elements.inviteMessage.textContent = state.message;
 
-    // Genera el enlace de copia idéntico al formato corto de la URL de entrada
-    const shareUrl = new URL(window.location.origin + window.location.pathname);
-    if (codeParam) {
-        shareUrl.searchParams.set("code", codeParam);
+    let iframeHtml = "";
+    const currentDomain = window.location.hostname;
+
+    if (state.plataforma === "twitch") {
+        iframeHtml = `<iframe src="https://player.twitch.tv/?channel=${state.canal}&parent=${currentDomain}&autoplay=false" allowfullscreen="true"></iframe>`;
+    } else if (state.plataforma === "kick") {
+        iframeHtml = `<iframe src="https://player.kick.com/${state.canal}" allowfullscreen="true"></iframe>`;
     }
-    elements.personalLink.textContent = shareUrl.toString();
+
+    elements.videoContainer.innerHTML = iframeHtml;
 }
 
 function updateCountdown() {
@@ -121,20 +122,6 @@ function updateCountdown() {
     elements.timer.textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-async function copyInviteLink() {
-    const text = elements.personalLink.textContent;
-
-    try {
-        await navigator.clipboard.writeText(text);
-        elements.copyLinkButton.textContent = "LINK COPIADO";
-        setTimeout(() => {
-            elements.copyLinkButton.textContent = "COPIAR LINK";
-        }, 2000);
-    } catch {
-        window.prompt("Copiá el link:", text);
-    }
-}
-
 function openDiscord() {
     window.open(state.discordUrl, "_blank", "noopener,noreferrer");
 }
@@ -151,7 +138,6 @@ function setupRevealAnimations() {
 
 function bindEvents() {
     elements.discordButton.addEventListener("click", openDiscord);
-    elements.copyLinkButton.addEventListener("click", copyInviteLink);
 }
 
 applyContent();
