@@ -1,60 +1,58 @@
-// 1. BASE DE DATOS DE LOS EQUIPOS (Agrega acá los nombres reales de los pibes)
-const ROSTERS = {
-    "EQ-01": "HIDEEN - ENZITOTAPS - CHOFI - RAMA - MANCHA",
-    "EQ-02": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-03": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-04": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-05": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-06": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-07": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-08": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-09": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-10": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-11": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-12": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-13": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-14": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-15": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5",
-    "EQ-16": "JUGADOR1 - JUGADOR2 - JUGADOR3 - JUGADOR4 - JUGADOR5"
+// 1. BASE DE DATOS DE LOS 16 EQUIPOS (Cargala manualmente acá)
+const EQUIPOS = {
+    "EQ-01": { nombre: "TEAM HIDEEN", acceso: "VIP", codigoDisplay: "CS-01" },
+    "EQ-02": { nombre: "TEAM ENZITOTAPS", acceso: "Competidor", codigoDisplay: "CS-02" },
+    "EQ-03": { nombre: "TEAM RUSH B", acceso: "Competidor", codigoDisplay: "CS-03" },
+    "EQ-04": { nombre: "ALFA STRIKE", acceso: "Competidor", codigoDisplay: "CS-04" },
+    "EQ-05": { nombre: "CLUTCH GODS", acceso: "Competidor", codigoDisplay: "CS-05" },
+    "EQ-06": { nombre: "EQUIPO 06", acceso: "Competidor", codigoDisplay: "CS-06" },
+    "EQ-07": { nombre: "EQUIPO 07", acceso: "Competidor", codigoDisplay: "CS-07" },
+    "EQ-08": { nombre: "EQUIPO 08", acceso: "Competidor", codigoDisplay: "CS-08" },
+    "EQ-09": { nombre: "EQUIPO 09", acceso: "Competidor", codigoDisplay: "CS-09" },
+    "EQ-10": { nombre: "EQUIPO 10", acceso: "Competidor", codigoDisplay: "CS-10" },
+    "EQ-11": { nombre: "EQUIPO 11", acceso: "Competidor", codigoDisplay: "CS-11" },
+    "EQ-12": { nombre: "EQUIPO 12", acceso: "Competidor", codigoDisplay: "CS-12" },
+    "EQ-13": { nombre: "EQUIPO 13", acceso: "Competidor", codigoDisplay: "CS-13" },
+    "EQ-14": { nombre: "EQUIPO 14", acceso: "Competidor", codigoDisplay: "CS-14" },
+    "EQ-15": { nombre: "EQUIPO 15", acceso: "Competidor", codigoDisplay: "CS-15" },
+    "EQ-16": { nombre: "EQUIPO 16", acceso: "Competidor", codigoDisplay: "CS-16" }
 };
 
 const defaults = {
     name: "INVITACIÓN",
-    subtitle: "Evento competitivo clasificado",
+    subtitle: "Fuiste invitado para formar parte de este equipo", // Mensaje fijo de la imagen
     team: "Por definir",
     seat: "Competidor",
     code: "CS-00",
     message: "El acceso de tu escuadra es único y privado.",
     discordUrl: "https://discord.gg/jN5rCJRE",
-    eventDate: "2026-07-04T17:00:00-03:00",
-    eventDateLabel: "4 JUL 2026",
+    eventDate: "2026-04-28T17:00:00-03:00",
+    eventDateLabel: "28 ABR 2026",
     eventTimeLabel: "17:00 ARG",
     eventModeLabel: "5v5",
-    countdownNote: "Preparate para el torneo. ¡Va a ser épico!"
+    countdownNote: "Prepará el server y revisá tu loadout."
 };
 
 const params = new URLSearchParams(window.location.search);
+const codeParam = params.get("code"); // Lee el ?code=EQ-XX de la URL
 
-// Obtenemos el código primero para poder buscar el roster analizando la URL
-const currentCode = params.get("code") || defaults.code;
-
-// CONDICIONAL INTELIGENTE: Si el código existe en nuestra lista ROSTERS, usa esos nombres. 
-// Si meten un código que no existe o no ponen nada, usa el parámetro 'subtitle' de la URL o el por defecto.
-const determinedSubtitle = ROSTERS[currentCode] || params.get("subtitle") || defaults.subtitle;
+// Buscamos si el código ingresado existe en nuestra base de datos interna
+const equipoEncontrado = EQUIPOS[codeParam];
 
 const state = {
-    name: params.get("name") || defaults.name,
-    subtitle: determinedSubtitle,
-    team: params.get("team") || defaults.team,
-    seat: params.get("seat") || defaults.seat,
-    code: currentCode,
-    message: params.get("message") || defaults.message,
-    discordUrl: params.get("discord") || defaults.discordUrl,
-    eventDate: params.get("date") || defaults.eventDate,
-    eventDateLabel: params.get("dateLabel") || defaults.eventDateLabel,
-    eventTimeLabel: params.get("timeLabel") || defaults.eventTimeLabel,
-    eventModeLabel: params.get("mode") || defaults.eventModeLabel,
-    countdownNote: params.get("note") || defaults.countdownNote
+    // Si existe el código, precarga los datos correspondientes; si no, usa los defaults
+    name: equipoEncontrado ? equipoEncontrado.nombre : defaults.name,
+    subtitle: defaults.subtitle,
+    team: equipoEncontrado ? equipoEncontrado.nombre : defaults.team,
+    seat: equipoEncontrado ? equipoEncontrado.acceso : defaults.seat,
+    code: equipoEncontrado ? equipoEncontrado.codigoDisplay : defaults.code,
+    message: defaults.message,
+    discordUrl: defaults.discordUrl,
+    eventDate: defaults.eventDate,
+    eventDateLabel: defaults.eventDateLabel,
+    eventTimeLabel: defaults.eventTimeLabel,
+    eventModeLabel: defaults.eventModeLabel,
+    countdownNote: defaults.countdownNote
 };
 
 const elements = {
@@ -86,12 +84,11 @@ function applyContent() {
     elements.countdownNote.textContent = state.countdownNote;
     elements.inviteMessage.textContent = state.message;
 
-    // Mantiene el enlace limpio para compartir centrado en los parámetros claves del equipo
+    // Genera el enlace de copia idéntico al formato corto de la URL de entrada
     const shareUrl = new URL(window.location.origin + window.location.pathname);
-    shareUrl.searchParams.set("team", state.team);
-    shareUrl.searchParams.set("code", state.code);
-    shareUrl.searchParams.set("name", state.name);
-    
+    if (codeParam) {
+        shareUrl.searchParams.set("code", codeParam);
+    }
     elements.personalLink.textContent = shareUrl.toString();
 }
 
