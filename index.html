@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Invitación privada para torneo de Counter-Strike.">
-    <title>Invitación Privada | Torneo Counter-Strike</title>
+    <title>Torneo Counter-Strike | Invitación y Llaves</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,10 +13,10 @@
     <div class="ambient ambient-a"></div>
     <div class="ambient ambient-b"></div>
 
-    <section class="container">
+    <section class="container" id="invitationView">
         <header class="hero">
             <p class="badge">INVITACIÓN PRIVADA</p>
-            <p class="eyebrow" id="tournamentLabel">TORNEO DE COUNTER-STRIKE</p>
+            <p class="eyebrow">TORNEO DE COUNTER-STRIKE</p>
             <h1 id="playerName">CARGANDO...</h1>
             <p class="subtitle" id="subtitle">...</p>
 
@@ -29,15 +29,15 @@
 
         <section class="stats-grid" aria-label="Detalles del evento">
             <article class="stat-card">
-                <span> FECHA</span>
+                <span>FECHA</span>
                 <strong id="eventDateLabel">--</strong>
             </article>
             <article class="stat-card">
-                <span> HORA</span>
+                <span>HORA</span>
                 <strong id="eventTimeLabel">--</strong>
             </article>
             <article class="stat-card">
-                <span> MODO</span>
+                <span>MODO</span>
                 <strong id="eventModeLabel">5v5</strong>
             </article>
         </section>
@@ -53,11 +53,9 @@
                     <div class="feature reveal">
                         <span class="text">Prepará tu <strong class="aim">AIM</strong></span>
                     </div>
-
                     <div class="feature reveal">
                         <span class="text">Ajustá la <strong class="strategy">ESTRATEGIA</strong></span>
                     </div>
-
                     <div class="feature reveal">
                         <span class="text">Demostrá quién <strong class="manda">MANDA</strong></span>
                     </div>
@@ -81,6 +79,7 @@
 
                 <div class="actions">
                     <button class="discord enabled" type="button" id="discordButton">DISCORD - UNIRSE</button>
+                    <button class="btn-brackets" type="button" id="showBracketsButton">VER LLAVES DEL TORNEO</button>
                 </div>
             </aside>
         </section>
@@ -89,6 +88,57 @@
             <p>Esta invitación es confidencial.</p>
             <p>No compartas el acceso público.</p>
         </footer>
+    </section>
+
+    <section class="container hidden" id="bracketsView">
+        <header class="hero-brackets">
+            <p class="badge">FIXTURE OFICIAL</p>
+            <h2>LLAVES DEL TORNEO</h2>
+            <p class="subtitle">Seguí el progreso y cruces de las 16 escuadras en tiempo real.</p>
+            <button class="btn-back" id="backToInviteButton">← VOLVER A LA INVITACIÓN</button>
+        </header>
+
+        <div class="tournament-bracket">
+            
+            <div class="bracket-round">
+                <h3>OCTAVOS DE FINAL</h3>
+                <div class="matchup"><div class="team" id="o1_t1">--</div><div class="team" id="o1_t2">--</div></div>
+                <div class="matchup"><div class="team" id="o2_t1">--</div><div class="team" id="o2_t2">--</div></div>
+                <div class="matchup"><div class="team" id="o3_t1">--</div><div class="team" id="o3_t2">--</div></div>
+                <div class="matchup"><div class="team" id="o4_t1">--</div><div class="team" id="o4_t2">--</div></div>
+                <div class="matchup"><div class="team" id="o5_t1">--</div><div class="team" id="o5_t2">--</div></div>
+                <div class="matchup"><div class="team" id="o6_t1">--</div><div class="team" id="o6_t2">--</div></div>
+                <div class="matchup"><div class="team" id="o7_t1">--</div><div class="team" id="o7_t2">--</div></div>
+                <div class="matchup"><div class="team" id="o8_t1">--</div><div class="team" id="o8_t2">--</div></div>
+            </div>
+
+            <div class="bracket-round">
+                <h3>CUARTOS DE FINAL</h3>
+                <div class="matchup"><div class="team" id="c1_t1">--</div><div class="team" id="c1_t2">--</div></div>
+                <div class="matchup"><div class="team" id="c2_t1">--</div><div class="team" id="c2_t2">--</div></div>
+                <div class="matchup"><div class="team" id="c3_t1">--</div><div class="team" id="c3_t2">--</div></div>
+                <div class="matchup"><div class="team" id="c4_t1">--</div><div class="team" id="c4_t2">--</div></div>
+            </div>
+
+            <div class="bracket-round">
+                <h3>SEMIFINALES</h3>
+                <div class="matchup"><div class="team" id="s1_t1">--</div><div class="team" id="s1_t2">--</div></div>
+                <div class="matchup"><div class="team" id="s2_t1">--</div><div class="team" id="s2_t2">--</div></div>
+            </div>
+
+            <div class="bracket-round final-round">
+                <h3>GRAN FINAL</h3>
+                <div class="matchup final-matchup">
+                    <div class="team" id="f1_t1">--</div>
+                    <div class="team" id="f1_t2">--</div>
+                </div>
+                <div class="champion-box">
+                    <span>🏆 CAMPEÓN</span>
+                    <strong id="championName">POR DEFINIR</strong>
+                </div>
+            </div>
+
+        </div>
     </section>
 </main>
 
